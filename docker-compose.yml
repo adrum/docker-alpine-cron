@@ -1,0 +1,10 @@
+version: '2'
+services:
+  cron:
+    image: adrum/docker-alpine-cron-pi
+    volumes:
+      - ./crons:/etc/cron.d
+      - ./scripts:/scripts
+      - ./logs:/logs
+    environment:
+      - 'CRON_STRINGS=* * * * * root /scripts/myapp-script.sh'
