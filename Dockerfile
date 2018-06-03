@@ -1,5 +1,4 @@
-FROM alpine:latest
-MAINTAINER d@d.ru
+FROM resin/raspberry-pi-alpine:latest
  
 RUN apk update && apk add dcron wget rsync ca-certificates && rm -rf /var/cache/apk/*
 
