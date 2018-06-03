@@ -40,3 +40,19 @@ docker run --name="alpine-cron-sample" -d \
 -e 'CRON_STRINGS=* * * * * root wget https://sample.dockerhost/cron-jobs'
 xordiv/docker-alpine-cron
 ```
+
+
+#### Docker Compose
+
+```
+version: '2'
+services:
+  cron:
+    image: adrum/docker-alpine-cron-pi
+    volumes:
+      - ./crons:/etc/cron.d
+      - ./scripts:/scripts
+      - ./logs:/logs
+    environment:
+      - 'CRON_STRINGS=* * * * * root /scripts/myapp-script.sh'
+```
